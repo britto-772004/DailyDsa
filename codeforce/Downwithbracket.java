@@ -2,23 +2,30 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 
-class Stack{
-    ArrayList<Character> list = new ArrayList<>();
-
-    void push(char element){
-        list.add(element);
-    }
-
-    void pop(){
-        list.remove(list.size()-1);
-    }
-
-    char peek(){
-        return list.get(list.size()-1);
-    }
-}
-
 public class Downwithbracket{
+
+    static boolean check(ArrayList<String> list,String str){
+        int number = str.length();
+        int i = 0;
+        int j = number -1;
+        while(i<j){
+            // System.out.print(str.charAt(i)+ " "+str.charAt(j));
+            if(str.charAt(i) == ')'){
+                return true;
+            }
+            if(str.charAt(i) == '('){
+                if(str.charAt(j) == '('){
+                    return true;
+                }
+            }
+
+            
+            i++;
+            j--;
+        }
+
+        return false;
+    }
 
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
@@ -33,39 +40,18 @@ public class Downwithbracket{
         }
 
         System.out.println(inputlist);
-        
 
-
-        
-
-        for(String str : inputlist){
-            Stack stack = new Stack();
-
-            stack.push('$');
-            
-            for(int i=0;i<str.length();i++){
-            char ele = str.charAt(i);
-            if(ele == '('){
-                stack.push(str.charAt(i));
-            }
-            else {
-                if(stack.peek() == '('){
-                    stack.pop();
-                }
-                else{
-                    stack.push(')');
-                }
-            }
-            
-        }
-
-        if(stack.peek() == '$'){
-            System.out.println("Valid");
+        for(int i=0;i<number;i++){
+            String str = inputlist.get(i);
+            if(check(inputlist,str)){
+            System.out.println("yes");
         }
         else{
-            System.out.println("Not valid");
+            System.out.println("No");
         }
         }
+        
+        
         
     }
     
