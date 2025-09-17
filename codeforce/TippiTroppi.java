@@ -1,6 +1,14 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
+// sample input and output 
+
+// britto@britto-HP-250-G7-Notebook-PC:~/placement/100/codeforce$ java TippiTroppi 
+// 2
+// unitied statues of america
+// britto john michael
+// usoa
+// bjm
 
 public class TippiTroppi{
 
