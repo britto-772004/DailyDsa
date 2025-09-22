@@ -2,35 +2,31 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Set;
 
-public class MajorityElement {
+public class SingleNumber {
 
-    static int approach(int[] array){
-        int n = array.length;
-
+    public int singleNumber(int[] nums) {
         HashMap<Integer,Integer> map = new HashMap<>();
 
-        for(int ele : array){
-            if(map.containsKey((ele))){
-                int temp = map.get(ele);
-                map.put(ele,temp+1);
+        for(int i=0;i<nums.length;i++){
+            int num = nums[i];
+            if(map.containsKey(num)){
+                int value = map.get(num);
+                map.put(num,value+1);
             }
             else{
-                map.put(ele,1);
+                map.put(num,1);
             }
         }
 
         Set<Integer> set = map.keySet();
-
         int answer = -1;
-
         for(int ele : set){
-            if(map.get(ele) > (n/2)){
+            if(map.get(ele) == 1){
                 answer = ele;
                 break;
             }
         }
         return answer;
-
     }
 
     public static void main(String[] args) {
@@ -45,8 +41,8 @@ public class MajorityElement {
         }
         input.close();
 
-        System.out.println("Majority element : "+approach(array));
+        SingleNumber obj = new SingleNumber();
+        System.out.println("Output : "+obj.singleNumber(array));
 
-        
     }
 }
