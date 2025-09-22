@@ -7,19 +7,21 @@ public class PetyaAndStrings{
 
         boolean flag = false;
         for(int i=0;i<n;i++){
-            int c1 = s1.charAt(i);
-            int c2 = s2.charAt(i);
+            char c1 = Character.toLowerCase(s1.charAt(i));
+            char c2 = Character.toLowerCase(s2.charAt(i));
             // System.out.print("c1 : "+c1+ " c2 : "+c2);
-            if((c1 - c2) == 32 || (c1 - c2) == -32 || (c1 - c2) == 0){
+            int result = c1 - c2;
+            if(result == 0 || result == 32){
                 flag = true;
+                continue;
             }
-            else if((c1 - c2) < 32 || (c1 - c2) > -32 && (c1 - c2) <0 ){
+            if(result < 0){
                 return -1;
             }
-            
-            else{
+            else {
                 return 1;
             }
+            
         }
         if(flag){
             return 0;
