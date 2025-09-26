@@ -5,7 +5,7 @@ public class LeftRotation{
 
     int[] rotate(int[] array,int d){
         int n = array.length;
-
+        
         d = d % n;
 
         int[] newarray = new int[n];
