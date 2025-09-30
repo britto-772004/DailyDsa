@@ -8,9 +8,8 @@ public class ShortSubstring {
 
         output.append(str.charAt(0));
 
-        for(int i=1;i<n;){
+        for(int i=1;i<n;i+=2){
             output.append(str.charAt(i));
-            i+=2;
         }
 
         return output.toString();
